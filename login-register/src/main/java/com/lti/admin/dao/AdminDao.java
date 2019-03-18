@@ -25,12 +25,14 @@ public class AdminDao {
 	public List<ReportCard> viewAll() {
 		String sql = "select obj from ReportCard as obj";
 		List<ReportCard> list = entityManager.createQuery(sql).getResultList(); 
+		
 		return list;
 		}
 public List<Performance> viewSpecifically(String levelName,String subjectName){
 	Query q=entityManager.createQuery("select s.name,r.score,q.levelName,q.subjectName from StudentInfo as s , ReportCard as r,Question q where q.levelName:levelName and q.subjectName:subjectName");
 	
 	List<Performance> list = q.getResultList(); 
+	
 	return list;
 	
 }
